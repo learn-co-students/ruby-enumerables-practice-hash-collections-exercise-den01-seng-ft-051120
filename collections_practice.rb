@@ -69,9 +69,9 @@ end
 
 def organize_campuses campuses 
   campuses_by_location = {}
-  campuses.each do |name, location_hash|
+  campuses.reduce({}) |campuses_by_location, (name, location_hash)|
     location = location_hash[:location]
-    if campuses_by_location.has_key?(location)
+    if campuses_by_location[location]
       campuses_by_location[location]<< name
     else 
       campuses_by_location[location] = [name]
