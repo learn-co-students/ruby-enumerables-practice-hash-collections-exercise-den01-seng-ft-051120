@@ -69,7 +69,9 @@ end
 
 def organize_campuses campuses 
   campuses.reduce({}) do |campuses_by_location, (name, location_hash)|
+    
     location = location_hash[:location]
+    
     if campuses_by_location[location]
       campuses_by_location[location]<< name
     else 
